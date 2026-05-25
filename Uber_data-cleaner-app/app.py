@@ -39,17 +39,17 @@ def upload():
 
     df = pd.read_csv(file, encoding="latin1")
 
-    # 🔥 CLEANING LOGIC START
+    #  CLEANING LOGIC START
     df['Candidate Name'] = df.iloc[:, 1].apply(clean_text_proper)
 
     df[['First', 'Middle', 'Last']] = df['Candidate Name'].apply(
         lambda x: pd.Series(split_name(x))
     )
 
-    # 🔥 FINAL OUTPUT
+    #  FINAL OUTPUT
     final = pd.DataFrame()
 
-    final['A_First_Name'] = df['First']
+    final['First_Name'] = df['First']
     final['B_Middle_Name'] = df['Middle']
     final['C_Last_Name'] = df['Last']
     final['D_Father_Name'] = df.iloc[:, 2]
@@ -73,7 +73,7 @@ def upload():
     final['V_City'] = ""
     final['W_Priority'] = ""
 
-    # 🔥 SAVE FILE
+    #  SAVE FILE
     output_file = "output.csv"
     final.to_csv(output_file, index=False)
 
