@@ -50,31 +50,31 @@ def upload():
     final = pd.DataFrame()
 
     final['First_Name'] = df['First']
-    final['B_Middle_Name'] = df['Middle']
-    final['C_Last_Name'] = df['Last']
-    final['D_Father_Name'] = df.iloc[:, 2]
-    final['E_Mobile'] = ""
-    final['F_DOB'] = df.iloc[:, 3].apply(format_dob)
-    final['G_Location'] = "496380"
-    final['H_Case_Insuff'] = ""
-    final['I_Case_Comment'] = ""
-    final['J_Car_No'] = "NOT MENTIONED"
+    final['Middle_Name'] = df['Middle']
+    final['Last_Name'] = df['Last']
+    final['Father_Name'] = df.iloc[:, 2]
+    final['Mobile'] = ""
+    final['DOB'] = df.iloc[:, 3].apply(format_dob)
+    final['Location'] = "496380"
+    final['Case_Insuff'] = ""
+    final['Case_Comment'] = ""
+    final['Car_No'] = "NOT MENTIONED"
     final['K'] = "NOT MENTIONED"
     final['L'] = "NOT MENTIONED"
-    final['M_UUID'] = df.iloc[:, 0]
-    final['N_Special_ID'] = ""
-    final['O_Mode'] = "OFFLINE"
-    final['P_Permanent_Insuff'] = ""
-    final['Q_Name'] = df['Candidate Name']
-    final['R_Type'] = ""
-    final['S_Address'] = df.iloc[:, 4]
-    final['T_Pin'] = ""
-    final['U_Insuff'] = ""
-    final['V_City'] = ""
-    final['W_Priority'] = ""
+    final['UUID'] = df.iloc[:, 0]
+    final['Special_ID'] = "FT_FORM"
+    final['Mode'] = "OFFLINE"
+    final['Permanent_Insuff'] = ""
+    final['Name'] = df['Candidate Name']
+    final['Type'] = ""
+    final['Address'] = df.iloc[:, 4]
+    final['Pin'] = ""
+    final['Insuff'] = ""
+    final['City'] = ""
+    final['Priority'] = ""
 
     #  SAVE FILE
-    output_file = "output.csv"
+    output_file = "uber(1).csv"
     final.to_csv(output_file, index=False)
 
     return send_file(output_file, as_attachment=True)
